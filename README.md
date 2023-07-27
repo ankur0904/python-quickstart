@@ -1,40 +1,67 @@
-## Quickstart Code
-### Replace `<YOUR_NOVU_API_KEY>` with your **API Key**, `<ID>` with **Subscriber ID**
-```python
-from novu.config import NovuConfig
-from novu.api import EventApi
-from novu.api.subscriber import SubscriberApi
-from novu.dto.subscriber import SubscriberDto
-NovuConfig().configure("https://api.novu.co", "<YOUR_NOVU_API_KEY>")
+<div align="center">
+  <a href="https://novu.co" target="_blank">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/2233092/213641039-220ac15f-f367-4d13-9eaf-56e79433b8c1.png">
+    <img src="https://user-images.githubusercontent.com/2233092/213641043-3bbb3f21-3c53-4e67-afe5-755aeb222159.png" width="280" alt="Logo"/>
+  </picture>
+  </a>
+</div>
 
+# Novu React Quickstart
 
-your_subscriber_id = "<ID>" 
+This sample app demonstrates how to integrate Novu's Notification Center in a NextJS app.
+It demonstrates how to trigger notifications from any backend and view them in real-time within the app.
 
-subscriber = SubscriberApi("https://api.novu.co", "<YOUR_NOVU_API_KEY>")
-subscriber.create(SubscriberDto(
-        subscriber_id=your_subscriber_id,
-        email="<Email>",
-        first_name="John",
-        last_name="Doe"
-    )
-)
+## Configuration
 
+### Create a free account in Novu
 
-subscriber = SubscriberApi("https://api.novu.co", "<YOUR_NOVU_API_KEY>")
-subscriber.put(subscriber=SubscriberDto(
-        subscriber_id="<ID>",   # you want update on this id
-        email="<New_Updated_Email>",
-        first_name="New",
-        last_name="Name"
-))
+1. Go to [Novu](https://web.novu.co) and click Sign Up.
+2. Use GitHub Account to login.
 
+### Obtain Credentials
 
-EventApi().trigger(
-    name="<trigger_ID>",  # The trigger ID of workflow name. It can be found on the workflow page.
-    recipients="<ID>",
-    payload={},  # Your Novu payload goes here
-)
+Your project needs to be configured with the following:
 
+1. App Identifier
+2. API key from [your Novu dashboard](https://web.novu.co/settings).
+3. SubscriberId to send notifications to.
 
-print("Done")
+##### Replace `<YOUR_NOVU_API_KEY>` with your **API Key**, `<ID>` with **Subscriber ID** in the code.
+
+## Run the project
+
+To run the project, first, clone the repo and install dependencies:
+
+```bash
+pip install novu
+or
+poetry add novu
 ```
+
+Then, run the code:
+
+```bash
+python main.py
+```
+
+
+## ⭐️ Why Novu?
+
+Novu provides a unified API that makes it simple to send notifications through multiple channels, including In-App, Push, Email, SMS, and Chat.
+With Novu, you can create custom workflows and define conditions for each channel, ensuring that your notifications are delivered in the most effective way possible.
+
+## ✨ Features
+
+- 🌈 Single API for all messaging providers (In-App, Email, SMS, Push, Chat)
+- 💅 Easily manage notifications over multiple channels
+- 🚀 Equipped with a CMS for advanced layouts and design management
+- 🛡 Built-in protection for missing variables (Coming Soon)
+- 📦 Easy to set up and integrate
+- 🛡 Debug and analyze multi-channel messages in a single dashboard
+- 📦 Embeddable notification center with real-time updates
+- 👨‍💻 Community driven
+
+## License
+
+This project is licensed under the MIT license.
